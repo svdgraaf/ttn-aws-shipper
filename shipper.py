@@ -82,6 +82,6 @@ while connected == False:
 print "connected"
 
 # connect to TTN, and wait for events
-ttn_client.subscribe("%s/devices/+/up#" % config['ttn']['eui'])
+ttn_client.subscribe("%s/devices/+/up" % config['ttn']['eui'])
 while True:
     pass
