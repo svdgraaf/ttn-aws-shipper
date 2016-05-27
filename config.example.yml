@@ -1,0 +1,14 @@
+aws:
+  certificates:
+    cert: ./certificates/9a108b84cd-certificate.pem.crt
+    private: ./certificates/9a108b84cd-private.pem.key
+    root: ./certificates/verisign-rootca.pem
+  endpoint: xyz.iot.eu-west-1.amazonaws.com
+  port: 8883
+  client_id: TTNShipper
+
+ttn:
+  eui: 10A2D46AF111167A
+  access_key: 30V516WXBT0SWfGPKe22+XYZABCDEFGHIJKLMNO=
+  endpoint: staging.thethingsnetwork.org
+  port: 1883

@@ -1,0 +1,7 @@
+*.pyc
+certificates/*.crt
+certificates/*.key
+*.key
+*.csr
+venv
+config.yml
