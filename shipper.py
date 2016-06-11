@@ -54,8 +54,12 @@ def on_message(client, userdata, msg):
 
     data = json.loads(str(msg.payload));
     device = data['dev_eui']
-    payload = json.loads(base64.b64decode(data['payload']))
-    data.update(payload)
+    try:
+        payload = json.loads(base64.b64decode(data['payload']))
+        data.update(payload)
+    except:
+        payload = base64.b64decode(data['payload'])
+        data['raw'] = payload
 
     shadow = {
         "state": {
