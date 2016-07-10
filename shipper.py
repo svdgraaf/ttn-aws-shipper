@@ -55,11 +55,16 @@ def on_message(client, userdata, msg):
     data = json.loads(str(msg.payload));
     device = data['dev_eui']
     try:
+        # Try if we have base64-encoded JSON payload
         payload = json.loads(base64.b64decode(data['payload']))
         data.update(payload)
-    except:
+    except ValueError:
         payload = base64.b64decode(data['payload'])
-        data['raw'] = payload
+        try:
+            json.dumps(payload) # Try if we have base64 encoded payload
+            data['raw'] = payload
+        except UnicodeDecodeError:
+            print("payload is not base64 at all")
 
     shadow = {
         "state": {
