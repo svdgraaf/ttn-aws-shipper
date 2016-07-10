@@ -18,7 +18,7 @@ with open("config.yml", 'r') as config_file:
         config = yaml.load(config_file)
         print config
     except yaml.YAMLError as exc:
-        print exc
+        print >> sys.stderr, exc
         sys.exit(1)
 
 connected = False
